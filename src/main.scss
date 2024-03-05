@@ -1,0 +1,91 @@
+$color-1: rgb(12, 12, 75);
+$color-2: rgb(22, 22, 104);
+$text-color: rgb(168, 168, 168);
+
+$font-weights: (
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+);
+
+$font-types: (
+    "heading": serif,
+    "normal": sans-serif
+);
+
+@mixin margin {
+    margin: 50px 0;
+}
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@function weight($weight-name) {
+    @return map-get($font-weights, $weight-name);
+}
+
+body {
+    font-weight: weight(regular);
+    font-family: map-get($font-types, normal);
+}
+
+
+
+#title {
+    @include flex(row, space-evenly, center);
+}
+
+h1{
+    font-weight: weight(bold);
+    font-family: map-get($font-types, heading);
+}
+
+
+
+#output-div {
+    @include flex(column, space-evenly, center);
+}
+
+#bio {
+    font-weight: weight(medium);
+}
+
+#output-body {
+    @include margin;
+}
+
+.info-title {
+    font-weight: weight(medium);
+}
+
+
+.light{
+    background-color: #AAD9BB;
+    .inner{
+        background-color: #80BCBD;
+    }
+    .major-text{
+        color: black;
+    }
+    .minor-text{
+        color: darkslategrey;
+    }
+}
+
+.dark{
+    background-color: rgb(12, 12, 75);
+
+    .inner{
+        background-color: rgb(22, 22, 104);
+    }
+    .major-text{
+        color: white;
+    }
+    .minor-text{
+        color: lightslategrey;
+    }
+}
